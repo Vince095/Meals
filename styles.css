@@ -1,6 +1,5 @@
 *{
-    padding: 0;
-    margin: 0;
+   
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
@@ -8,7 +7,8 @@
 
 body{
     background:#d3e4e970;
-    
+     padding: 0;
+    margin: 0;
 }
 
 .menu{
