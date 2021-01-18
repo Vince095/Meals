@@ -92,6 +92,7 @@ li:active{
     max-height:30vh;
     display:flex;
     position: relative;
+    box-shadow: 0 0 15px 5px rgba(0, 128, 128, 0.363);
     border-radius: 0 0 50% 50%;
     
 }
