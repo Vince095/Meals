@@ -24,7 +24,21 @@ window.onload = () =>{
         ad:"Time to cook up a storm"
     }];
     let category = Array();
-
+    var menu_bar = document.querySelector('.menu');
+    let swipeUp = new Hammer(document.body);
+    let swipeDown = new Hammer(document.body);
+    //on scroll up 
+    swipeUp.get('swipe').set({direction:Hammer.DIRECTION_ALL});
+    swipeUp.on('swipeup',()=>{
+        menu_bar.style.height=0;
+        menu_bar.style.opacity=0;
+    })
+    //on scroll down show menu
+    swipeDown.get('swipe').set({direction:Hammer.DIRECTION_ALL});
+    swipeDown.on('swipedown',()=>{
+        menu_bar.style.height="4rem";
+        menu_bar.style.opacity=1;
+    })
     const cate = (()=>{
         const display = document.querySelector('.criteria');
         //get the api
