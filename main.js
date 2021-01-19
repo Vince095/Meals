@@ -24,7 +24,7 @@ window.onload = () =>{
         ad:"Time to cook up a storm"
     }];
     let category = Array();
-    var menu_bar = document.querySelector('.menu');
+    /*var menu_bar = document.querySelector('.menu');
     let swipeUp = new Hammer(document.body);
     let swipeDown = new Hammer(document.body);
     //on scroll up 
@@ -38,7 +38,7 @@ window.onload = () =>{
     swipeDown.on('swipedown',()=>{
         menu_bar.style.height="4rem";
         menu_bar.style.opacity=1;
-    })
+    })*/
     const cate = (()=>{
         const display = document.querySelector('.criteria');
         //get the api
