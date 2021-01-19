@@ -1,4 +1,10 @@
 window.onload = () =>{
+    setTimeout(() => {
+        let page_load = document.querySelector('.loading');
+        let load = document.querySelector('.bx-loader');
+        page_load.remove();
+        load.remove();
+    },3500);
     const meals = [{
         name: "01",
         url:"https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?cs=srgb&dl=pexels-ella-olsson-1640777.jpg&fm=jpg"
@@ -51,6 +57,8 @@ window.onload = () =>{
         fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`)
         .then(res=> res.json())
         .then(data =>{
+            const match =data.meals[0].strYoutube.match(/v=([0-9a-z_-]{1,20})/i);
+            let strUrl = match?match['1']:false;
            // meals.push(data.meals[0].strMealThumb);
             
             recep.innerHTML +=`<span>Category: ${data.meals[0].strCategory}</span>
@@ -65,8 +73,6 @@ window.onload = () =>{
                          let play_vid = document.querySelectorAll('.bx-play')
                           play_vid.forEach(btn => {
                               btn.addEventListener('click',()=>{
-                                  const match =data.meals[0].strYoutube.match(/v=([0-9a-z_-]{1,20})/i);
-                                  let strUrl = match?match['1']:false;
                                   img_con.innerHTML=`<iframe src="https://www.youtube.com/embed/${strUrl}"  frameBorder=0 allowFullScreen ng-show="showvideo">`
                               })
                           });
