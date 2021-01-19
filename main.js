@@ -1,9 +1,8 @@
 window.onload = () =>{
     setTimeout(() => {
         let page_load = document.querySelector('.loading');
-        let load = document.querySelector('.bx-loader');
         page_load.remove();
-        load.remove();
+       
     },3500);
     const meals = [{
         name: "01",
@@ -33,6 +32,8 @@ window.onload = () =>{
             .then(res =>res.json())
             .then(data =>{
                 for(let i=0;i<data.categories.length;i++){
+                    
+
                     display.innerHTML +=`
                     
                     <div class="category">
@@ -79,9 +80,9 @@ window.onload = () =>{
 
 
                          let info_con = document.createElement('div');
-                         let img_con = document.querySelector('.img-con')
+                         var img_con = document.querySelector('.img-con')
                          info_con.className="info-con";
-                         info_con.innerHTML+=`${data.meals[0].strIngredient1}`
+                         info_con.innerHTML=`${data.meals[0].strIngredient1}`
                          img_con.appendChild(info_con);
                      
                     
@@ -120,8 +121,19 @@ window.onload = () =>{
         let srcBtn = document.querySelector('.bx-search-alt-2');
         let input = document.querySelector('input');
 
-        input.addEventListener('focus',()=>{
-
+        const getFood = (()=>{
+            fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=Arrabiata`)
+            .then(res=>res.json())
+            .then(data =>{
+                srcBtn.addEventListener('click',()=>{
+                    if(data.meals[0].strMeal.toUpperCase().indexOf(input.value.toUpperCase())>-1 ){
+                        console.log(data.meals[0].strMeal);
+                    }
+                })
+                
+            })  
         })
-    })
+
+        
+    })();
 }
