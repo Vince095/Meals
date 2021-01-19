@@ -1,23 +1,26 @@
 <!DOCTYPE html>
     <head>
         <title>Meal App</title>
-         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="Content-Type" content="IE=edge,chrome=1">
         <link rel="stylesheet" href="styles.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css">
         <script src="main.js"></script>
     </head>
    <body>
+       <div class="loading">
+          <div class="page-load"></div>
+       </div>
        <div class="menu">
            <i class="bx bx-menu-alt-left"></i>
            
-        <!--ul>
+        <ul>
             <li class="bx bx-home-alt"> Home</li>
             <li class="bx bx-caret-down-square"> Category</li>
             <li class="bx bx-food-tag"> Meal Plan</li>
             <li class="bx bx-user-voice"> About</li>
             
-        </ul-->
+        </ul>
         <div class="search">
             <input type="search" placeholder="Search recepies">
             <i class="bx bx-search-alt-2"></i>
@@ -34,7 +37,7 @@
        <div class="container">
             <h2><u>Recepies of the day</u></h2>
             <div class="recep-con">
-                
+                <i class="bx bx-loader bx-md bx-spin"></i>
             </div>
        </div>
    </body>
