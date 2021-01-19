@@ -1,9 +1,8 @@
 window.onload = () =>{
     setTimeout(() => {
         let page_load = document.querySelector('.loading');
-        let load = document.querySelector('.bx-loader');
         page_load.remove();
-        load.remove();
+       
     },3500);
     const meals = [{
         name: "01",
@@ -25,7 +24,21 @@ window.onload = () =>{
         ad:"Time to cook up a storm"
     }];
     let category = Array();
-
+    var menu_bar = document.querySelector('.menu');
+    let swipeUp = new Hammer(document.body);
+    let swipeDown = new Hammer(document.body);
+    //on scroll up 
+    swipeUp.get('swipe').set({direction:Hammer.DIRECTION_ALL});
+    swipeUp.on('swipeup',()=>{
+        menu_bar.style.height=0;
+        menu_bar.style.opacity=0;
+    })
+    //on scroll down show menu
+    swipeDown.get('swipe').set({direction:Hammer.DIRECTION_ALL});
+    swipeDown.on('swipedown',()=>{
+        menu_bar.style.height="4rem";
+        menu_bar.style.opacity=1;
+    })
     const cate = (()=>{
         const display = document.querySelector('.criteria');
         //get the api
@@ -33,6 +46,8 @@ window.onload = () =>{
             .then(res =>res.json())
             .then(data =>{
                 for(let i=0;i<data.categories.length;i++){
+                    
+
                     display.innerHTML +=`
                     
                     <div class="category">
@@ -79,9 +94,9 @@ window.onload = () =>{
 
 
                          let info_con = document.createElement('div');
-                         let img_con = document.querySelector('.img-con')
+                         var img_con = document.querySelector('.img-con')
                          info_con.className="info-con";
-                         info_con.innerHTML+=`${data.meals[0].strIngredient1}`
+                         info_con.innerHTML=`${data.meals[0].strIngredient1}`
                          img_con.appendChild(info_con);
                      
                     
@@ -120,8 +135,19 @@ window.onload = () =>{
         let srcBtn = document.querySelector('.bx-search-alt-2');
         let input = document.querySelector('input');
 
-        input.addEventListener('focus',()=>{
-
+        const getFood = (()=>{
+            fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=Arrabiata`)
+            .then(res=>res.json())
+            .then(data =>{
+                srcBtn.addEventListener('click',()=>{
+                    if(data.meals[0].strMeal.toUpperCase().indexOf(input.value.toUpperCase())>-1 ){
+                        console.log(data.meals[0].strMeal);
+                    }
+                })
+                
+            })  
         })
-    })
+
+        
+    })();
 }
