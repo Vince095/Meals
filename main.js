@@ -88,7 +88,7 @@ window.onload = () =>{
                          let play_vid = document.querySelectorAll('.bx-play')
                           play_vid.forEach(btn => {
                               btn.addEventListener('click',()=>{
-                                  img_con.innerHTML=`<iframe src="https://www.youtube.com/embed/${strUrl}"  frameBorder=0 allowFullScreen ng-show="showvideo">`
+                                  img_con.innerHTML+=`<iframe src="https://www.youtube.com/embed/${strUrl}"  frameBorder=0 allowFullScreen ng-show="showvideo">`
                               })
                           });
 
@@ -96,7 +96,7 @@ window.onload = () =>{
                          let info_con = document.createElement('div');
                          var img_con = document.querySelector('.img-con')
                          info_con.className="info-con";
-                         info_con.innerHTML=`${data.meals[0].strIngredient1}`
+                         info_con.innerHTML+=`${data.meals[0].strIngredient1}`
                          img_con.appendChild(info_con);
                      
                     
@@ -136,7 +136,7 @@ window.onload = () =>{
         let input = document.querySelector('input');
 
         const getFood = (()=>{
-            fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=Arrabiata`)
+            fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${input.value}`)
             .then(res=>res.json())
             .then(data =>{
                 srcBtn.addEventListener('click',()=>{
