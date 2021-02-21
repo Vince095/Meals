@@ -88,7 +88,7 @@ window.onload = () =>{
                          let play_vid = document.querySelectorAll('.bx-play')
                           play_vid.forEach(btn => {
                               btn.addEventListener('click',()=>{
-                                  img_con.innerHTML+=`<iframe src="https://www.youtube.com/embed/${strUrl}"  frameBorder=0 allowFullScreen ng-show="showvideo">`
+                                  img_con.innerHTML=`<iframe src="https://www.youtube.com/embed/${strUrl}"  frameBorder=0 allowFullScreen ng-show="showvideo">`
                               })
                           });
 
