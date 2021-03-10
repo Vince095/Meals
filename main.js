@@ -81,7 +81,6 @@ window.onload = () =>{
                                 <img src="${data.meals[0].strMealThumb}">
                                 <i id="ing" class="bx bx-info-circle bx-xs"></i>
                                 <i class="bx bx-play bx-md"></i>
-                                 <iframe src="https://www.youtube.com/embed/${strUrl}"  frameBorder=0 allowFullScreen ng-show="showvideo">`
                               </div>
                          <h3> ${data.meals[0].strMeal}</h3>
                          <p class="instructions">${data.meals[0].strInstructions}</p>`
